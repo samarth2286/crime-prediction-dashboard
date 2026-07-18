@@ -4,8 +4,13 @@ import 'leaflet/dist/leaflet.css';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts';
 import { Shield, Search, TrendingUp, AlertTriangle, MapPin, Users, Calendar, Activity } from 'lucide-react';
 
-// API Base URL
-const API_URL = 'http://127.0.0.1:8000';
+// API Base URL (auto-detects local development vs production deployment)
+const API_URL = import.meta.env.VITE_API_URL || (
+  typeof window !== 'undefined' && 
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://127.0.0.1:8000'
+    : 'https://crime-prediction-dashboard-1u2j.onrender.com'
+);
 
 // Helper component to center and animate map viewpoint changes
 function MapFocus({ center, zoom }) {

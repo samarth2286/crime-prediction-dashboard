@@ -443,3 +443,70 @@ body {
   font-family: var(--font-heading);
   color: var(--accent);
 }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  body {
+    overflow: auto; /* Allow scrolling on mobile body */
+    height: auto;
+  }
+  
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 450px;
+    height: auto;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-glass);
+    height: auto;
+    padding: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    overflow-y: visible;
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .map-container {
+    height: 450px;
+    width: 100%;
+  }
+  
+  #leaflet-map {
+    height: 100%;
+    width: 100%;
+  }
+
+  .map-legend {
+    bottom: 12px;
+    right: 12px;
+    padding: 10px;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .legend-item {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .legend-color {
+    width: 10px;
+    height: 10px;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .glass-card {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
